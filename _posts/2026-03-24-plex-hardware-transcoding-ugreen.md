@@ -3,7 +3,7 @@ layout: post
 title: Getting Plex Hardware Transcoding Working on the Ugreen DXP4800 Pro
 ---
 
-I picked up a [Ugreen DXP4800 Pro](https://nas.ugreen.com/products/ugreen-nasync-dxp4800-pro-136tb-4-bay-nas) NAS earlier this year. It's a 4-bay unit with an Intel Core i5-1235U (Raptor Lake-P) - a chip more commonly found in laptops than NAS enclosures, which turns out to matter a lot when you want to run Plex Media Server.
+I picked up a [Ugreen DXP4800 Pro](https://nas.ugreen.com/products/ugreen-nasync-dxp4800-pro-136tb-4-bay-nas) NAS earlier this year. It's a 4-bay unit with an Intel Core i3-1315U, 10GbE + 2.5GbE LAN, and dual M.2 NVMe SSD slots. I upgraded the RAM to 2x8GB DDR5-5600 SO-DIMMs (replacing the stock single stick) for 16GB total. The i3-1315U is a chip more commonly found in laptops than NAS enclosures, which turns out to matter a lot when you want to run Plex Media Server.
 
 Getting hardware transcoding working wasn't entirely straightforward. This post documents what actually happened, including a few non-obvious problems that wasted an afternoon.
 
@@ -127,7 +127,7 @@ With the container configuration sorted, the relevant settings in **Settings →
 - **Transcoder quality:** Make my CPU hurt - with the GPU doing the heavy lifting, quality-at-max is fine
 - **Use hardware acceleration when available:** ✅
 - **Use hardware-accelerated video encoding:** ✅
-- **Hardware transcoding device:** Intel Raptor Lake-P [UHD Graphics] - select explicitly, not "Auto"
+- **Hardware transcoding device:** Intel Alder Lake-P [UHD Graphics] - select explicitly, not "Auto"
 - **Enable HEVC video encoding:** Always - without this, Plex falls back to H.264 for all transcoded output, even when the client supports HEVC
 - **Enable HEVC Optimization:** ✅
 - **Enable HDR tone mapping:** ✅ - without this, HDR content transcoded to SDR will look washed out and dim
